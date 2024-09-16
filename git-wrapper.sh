@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+
 $(dirname $0)/git.bin "$@"
 EC=$?
 
