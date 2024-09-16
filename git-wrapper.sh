@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source /git-crypt-vault/env.sh
+
 $(dirname $0)/git.bin "$@"
 EC=$?
 
