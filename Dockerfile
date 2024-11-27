@@ -6,11 +6,11 @@ RUN set -ex \
  && apk add --no-cache \
       curl \
       unzip \
- && curl -sSfLo vault.zip "https://releases.hashicorp.com/vault/1.17.5/vault_1.17.5_linux_amd64.zip" \
+ && curl -sSfLo vault.zip "https://releases.hashicorp.com/vault/1.18.2/vault_1.18.2_linux_amd64.zip" \
  && unzip vault.zip
 
 
-FROM quay.io/argoproj/argocd:v2.12.6
+FROM quay.io/argoproj/argocd:v2.13.1
 
 USER root
 
