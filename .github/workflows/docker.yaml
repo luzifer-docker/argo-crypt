@@ -31,15 +31,17 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Docker Build & Push
+      - name: Docker Build
         run: |
-          tag=$(awk -F: '/FROM.*argocd/{ print $2 }' Dockerfile | cut -d '@' -f 1)
-
           docker buildx build \
             --no-cache \
             --pull \
-            --tag ghcr.io/${GITHUB_REPOSITORY,,}:${tag} \
+            --tag ghcr.io/${GITHUB_REPOSITORY,,}:$(awk -F: '/FROM/{print $2}' Dockerfile | cut -d '@' -f 1) \
             .
-          docker push ghcr.io/${GITHUB_REPOSITORY,,}:${tag}
+
+      - name: Docker Push
+        run: |
+          docker push ghcr.io/${GITHUB_REPOSITORY,,}:$(awk -F: '/FROM/{print $2}' Dockerfile | cut -d '@' -f 1)
+        if: ${{ github.ref == 'refs/heads/master' }}
 
 ...
