@@ -1,4 +1,4 @@
-FROM alpine AS prefetch
+FROM alpine@sha256:56fa17d2a7e7f168a043a2712e63aed1f8543aeafdcee47c58dcffe38ed51099 AS prefetch
 
 WORKDIR /tmp
 
@@ -10,7 +10,7 @@ RUN set -ex \
  && unzip vault.zip
 
 
-FROM quay.io/argoproj/argocd:v2.14.1
+FROM quay.io/argoproj/argocd:v2.14.1@sha256:c8005c461b9b5c0a9f08c6cfe4bd97a87b9d220157c34dff5a96690a8e1e2147
 
 USER root
 
