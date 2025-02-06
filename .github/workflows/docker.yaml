@@ -33,7 +33,7 @@ jobs:
 
       - name: Docker Build & Push
         run: |
-          tag=$(awk -F: '/FROM.*argocd/{ print $2 }' Dockerfile)
+          tag=$(awk -F: '/FROM.*argocd/{ print $2 }' Dockerfile | cut -d '@' -f 1)
 
           docker buildx build \
             --no-cache \
