@@ -10,7 +10,7 @@ RUN set -ex \
  && unzip vault.zip
 
 
-FROM quay.io/argoproj/argocd:v2.14.7@sha256:1893f23b240cd0a3ee27eccb7d84eb41de1f68bae33772d9a9acdf4e1f72dfba
+FROM quay.io/argoproj/argocd:v2.14.8@sha256:a5ed1e6cef908ce9f3ba45c1bd2cc68e911b5be223f480d8e20ab38fcee9b2e7
 
 USER root
 
